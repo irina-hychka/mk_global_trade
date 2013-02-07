@@ -1,0 +1,783 @@
+/*
+Theme Name: Twenty Twelve
+Theme URI: http://wordpress.org/extend/themes/twentytwelve
+Author: the WordPress team
+Author URI: http://wordpress.org/
+Description: The 2012 theme for WordPress is a fully responsive theme that looks great on any device. Features include a front page template with its own widgets, an optional display font, styling for post formats on both index and single views, and an optional no-sidebar page template. Make it yours with a custom menu, header image, and background.
+Version: 1.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: light, gray, white, one-column, two-columns, right-sidebar, flexible-width, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, rtl-language-support, sticky-post, theme-options, translation-ready
+Text Domain: twentytwelve1
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+/* =Notes
+--------------------------------------------------------------
+This stylesheet uses rem values with a pixel fallback. The rem
+values (and line heights) are calculated using two variables:
+
+$rembase:     14;
+$line-height: 24;
+
+---------- Examples
+
+* Use a pixel value with a rem fallback for font-size, padding, margins, etc.
+	padding: 5px 0;
+	padding: 0.357142857rem 0; (5 / $rembase)
+
+* Set a font-size and then set a line-height based on the font-size
+	font-size: 16px
+	font-size: 1.142857143rem; (16 / $rembase)
+	line-height: 1.5; ($line-height / 16)
+
+---------- Vertical spacing
+
+Vertical spacing between most elements should use 24px or 48px
+to maintain vertical rhythm:
+
+.my-new-div {
+	margin: 24px 0;
+	margin: 1.714285714rem 0; ( 24 / $rembase )
+}
+
+---------- Further reading
+
+http://snook.ca/archives/html_and_css/font-size-with-rem
+http://blog.typekit.com/2011/11/09/type-study-sizing-the-legible-letter/
+
+
+/*----------------------------------------------------------------------------------*/
+/*------------------------------RESET DEFAULT STYLES--------------------------------*/
+/*----------------------------------------------------------------------------------*/
+html,body {
+    width:100%;
+    height:100%;
+}
+body {
+    padding:0;
+    margin: 17px 0 0;
+    font-size:12px;
+    font-family: Arial, sans-serif;
+    line-height: 12px;
+    color:#6F6F6F;
+    background: url("images/body_bg.png") repeat-x #ffffff;
+}
+div,p,a,span,em,strong,img,h1,h2,h3,h4,h5,h6,ul,ol,li,dl,dt,dd,table,td,tr,form,fieldset,label,select,input,textarea {
+    padding:0;
+    margin:0;
+    outline:none;
+    list-style:none;
+}
+
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------DEFAULT CLASSES------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.float-r           	           { float:right !important; }
+.float-l                       { float:left !important; }
+.no-float                      { float:none !important; }
+.no-border                     { border:0 !important; }
+.no-bg                         { background:none !important; }
+.no-margin                     { margin:0 !important; }
+.no-padding                    { padding:0 !important; }
+.no-display                    { display:none !important; }
+.display                       { display:block !important; }
+.inline                        { display:inline !important; }
+.overflow                      { overflow:hidden !important; }
+.align-r                       { text-align:right !important; }
+.align-l                       { text-align:left !important; }
+.align-c                       { text-align:center !important; }
+.clear                         { clear:both; }
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------WRAPPER--------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+#page {
+    overflow: hidden;
+    margin: 0 auto;
+    width: 961px;
+
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------HEADER---------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+#header {
+    overflow: hidden;
+    position: relative;
+    height: 172px;
+    background: url("images/header_bg.png") repeat-x;
+    box-shadow: 0 0 8px 5px #D3D3D3;
+    -moz-box-shadow: 0 0 8px 5px #D3D3D3;
+    -webkit-box-shadow: 0 0 8px 5px #D3D3D3;
+    -ms-box-shadow: 0 0 8px 5px #D3D3D3;
+    -o-box-shadow: 0 0 8px 5px #D3D3D3;
+}
+.logo {
+    position: absolute;
+    width: 260px;
+    height: 112px;
+    margin: 9px 0 0 16px;
+    background: url(./images/logo_bg.png) no-repeat;
+}
+.logo a {
+    display: block;
+    width: 260px;
+    height: 112px;
+    text-indent: -300px;
+}
+.social_links {
+    overflow: hidden;
+    float: right;
+    margin: 14px 30px 0 0;
+}
+.social_links li {
+    overflow: hidden;
+    float: left;
+    width: 30px;
+    height: 30px;
+    padding: 0 2px;
+}
+.social_links li a {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url("images/social_links.png") no-repeat;
+    text-indent: -200px;
+}
+.social_links .tw a {
+    background-position: 1px 0;
+}
+.social_links .fb a {
+    background-position: -31px 0;
+}
+.social_links .linked_in a {
+    background-position: -64px 0;
+}
+.social_links .google a {
+    background-position: -98px 0;
+}
+.main-navigation ul {
+    overflow: hidden;
+    float: right;
+    margin: 29px 42px 0 0;
+    clear: both;
+}
+.main-navigation li {
+    overflow: hidden;
+    float: left;
+    padding: 0 14px 0 0;
+}
+.main-navigation li a {
+    text-decoration: none;
+    color: #393939;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------CONTENT--------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+#main {
+    overflow: hidden;
+    background-color: #F9F9F9;
+    padding: 48px 0 30px 0;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------CONTAINER------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.site-content {
+    overflow: hidden;
+    float: left;
+    width: 737px;
+    margin: 0 19px 0 0;
+}
+
+article {
+    overflow: hidden;
+    margin: 0 0 64px;
+}
+article span {
+    font-size: 13px;
+    font-style: italic;
+    color: #B6B6B6;
+}
+article span a {
+    color: #fe7151;
+    text-decoration: none;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 13px;
+}
+
+.article_info {
+    overflow: hidden;
+    float: left;
+    width: 201px;
+    margin: 0 12px 0 0;
+}
+.day {
+    font-size: 40px;
+    line-height: 39px;
+    color: #00568A;
+    text-align: right;
+}
+.month {
+    margin: 0 0 10px 0;
+    font-size: 21px;
+    color: #00568A;
+    line-height: 13px;
+    text-align: right;
+    text-transform: uppercase;
+}
+.comments-link a {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    font-style: italic;
+    color: #B6B6B6;
+    text-decoration: none;
+}
+
+.comments-link span {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    font-style: italic;
+    color: #B6B6B6;
+}
+.article_content {
+    overflow: hidden;
+    padding: 0 0 0 15px;
+    border-left: 1px solid #00568A;
+}
+.article_content h2 {
+    overflow: hidden;
+    padding: 0 0 8px;
+    color: #005589;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 24px;
+}
+.article_content h2 a {
+    color: #005589;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 24px;
+    text-decoration: none;
+}
+.meta_info {
+    overflow: hidden;
+    padding: 0 0 19px;
+}
+.meta_info span {
+    padding: 0 12px 0 0;
+}
+.article_content p {
+    overflow: hidden;
+    padding: 0 0 19px;
+    line-height: 18px;
+}
+.date {
+    overflow: hidden;
+    float: left;
+    width: 150px;
+    padding: 0 0 0 2px;
+    color: #fa1515;
+    font-style: italic;
+}
+.time {
+    padding: 0 0 0 15px;
+    color: #fa1515;
+}
+.read-more {
+    display: block;
+    float: right;
+    width: 90px;
+    height: 17px;
+    padding: 3px 0 0;
+    background: url("images/readmore_link.png") no-repeat;
+    color: #FFFFFF;
+    font-style: italic;
+    text-align: center;
+    text-decoration: none;
+}
+.entry-content p a {
+    font-style: italic;
+    color: #00568A;
+    text-decoration: none;
+}
+.entry-content p a:hover {
+    text-decoration: underline;
+}
+.entry-content p a img {
+    overflow: hidden;
+    display: block;
+    /*width: 496px;*/
+    /*height: 169px;*/
+    padding: 3px;
+    margin: 0 auto;
+    border: 1px solid #00568A;
+}
+/*------------------PAGINATOR-------------*/
+.paginator {
+    overflow: hidden;
+    margin: 0 0 0 207px;
+}
+.wp-paginate li {
+    overflow: hidden;
+    float: left;
+    margin: 0 8px 0 0;
+}
+.wp-paginate li a {
+
+}
+.current {
+    color: #D8D8D8;
+}
+.wp-paginate .prev {
+
+}
+a.next {
+    float: left;
+    width: 47px;
+}
+/*-----------------COMMENT-------------------*/
+.comments-area {
+    overflow: hidden;
+    margin: 0 0 0 210px;
+}
+.commentlist {
+    overflow: hidden;
+    /*margin: 0 0 0 231px;*/
+    background: url("images/double_border.png") repeat-x 0 top;
+}
+.commentlist li {
+    overflow: hidden;
+    margin: 24px 0 24px;
+}
+.comment {
+    overflow: hidden;
+    margin: 0;
+}
+.comment header {
+    overflow: hidden;
+    width: 250px;
+    padding: 0 0 31px;
+}
+.comment header img {
+    overflow: hidden;
+    display: block;
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 0 13px 0 0;
+    padding: 3px;
+    border: 1px solid #00568A;
+}
+.comment header cite {
+    display: block;
+    padding: 13px 0 8px;
+    color: #00568A;
+    font-size: 26px;
+    font-style: normal;
+    line-height: 20px;
+}
+.comment header a {
+    color: #B6B6B6;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: none;
+
+}
+.comment header a:hover {
+    text-decoration: underline;
+}
+.reply {
+    overflow: hidden;
+    float: right;
+    width: 90px;
+    height: 19px;
+    margin: 13px 0 0;
+}
+.reply a {
+    display: block;
+    width: 90px;
+    height: 17px;
+    padding: 3px 0 0;
+    background: url("images/link_arrow.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-style: italic;
+    text-align: center;
+    text-decoration: none;
+}
+.comment section {
+    overflow: hidden;
+}
+.comment section p {
+    padding: 0 0 0 71px;
+    color: #4c4c4c;
+    font-size: 14px;
+    line-height: 16px;
+}
+.edit-link a {
+    color: #B6B6B6;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: none;
+}
+.edit-link a:hover {
+    text-decoration: underline;
+}
+
+/*-------------------PAGE--------------------*/
+.pages {
+    overflow: hidden;
+    margin: 0 0 64px 201px;
+    padding: 0 0 0 15px;
+    border-left: 1px solid #00568A;
+}
+.pages header {
+    overflow: hidden;
+}
+.pages header h1 {
+    padding: 0 0 8px;
+    color: #005589;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 24px;
+}
+.pages .entry-content {
+    overflow: hidden;
+}
+.pages .entry-content p {
+    overflow: hidden;
+    padding: 0 0 19px;
+    line-height: 18px;
+}
+.pages .entry-content ul {
+    overflow: hidden;
+}
+.pages .entry-content ul li {
+    overflow: hidden;
+    padding: 0 0 8px;
+    line-height: 18px;
+}
+.pages .entry-content a {
+    color: #00568A;
+    text-decoration: none;
+    font-style: italic;
+}
+.pages .entry-content a:hover {
+    text-decoration: underline;
+}
+.pages footer {
+    overflow: hidden;
+}
+.pages footer span {
+    color: #B6B6B6;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: none;
+}
+.nav-single {
+    overflow: hidden;
+    margin: 0 0 0 210px;
+}
+.previous_links {
+    overflow: hidden;
+    margin: 0 0 30px;
+}
+.nav-single .nav-previous {
+    overflow: hidden;
+    float: right;
+    width: 90px;
+    height: 19px;
+}
+.nav-single .nav-previous a {
+    display: block;
+    width: 90px;
+    height: 17px;
+    padding: 3px 0 0;
+    background: url("images/link_arrow.png") no-repeat scroll 0 0 transparent;
+    color: #FFFFFF;
+    font-style: italic;
+    text-align: center;
+    text-decoration: none;
+}
+.nav-single .nav-previous-tags {
+    overflow: hidden;
+    display: block;
+    float: left;
+    width: 420px;
+    margin: 0 0 0 10px;
+}
+.nav-single .nav-previous-tags a {
+    color: #FE7151;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 13px;
+    text-decoration: none;
+}
+.nav-single .nav-previous-tags a:hover {
+    text-decoration: underline;
+}
+.adding_comments {
+    overflow: hidden;
+    margin: 0 0 10px 10px;
+}
+.adding_comments .comments-number {
+    overflow: hidden;
+    display: block;
+    float: left;
+    margin: 0 10px 0 0;
+}
+.adding_comments .comments-number a {
+    color: #B6B6B6;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: none;
+    text-align: left;
+}
+.adding_comments .comments-add {
+    overflow: hidden;
+    display: block;
+}
+.adding_comments .comments-add a {
+    overflow: hidden;
+    display: block;
+    color: #666666;
+    text-decoration: none;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;;
+}
+/*-------------------FORM--------------------*/
+#respond {
+    overflow: hidden;
+    padding: 22px 0 0 0;
+    border: 0;
+    border-top: 1px solid #CCD4DF;
+}
+#respond h3 {
+    overflow: hidden;
+    padding: 0 0 22px;
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 24px;
+    color: #005589;
+}
+#commentform {
+    overflow: hidden;
+}
+#commentform p {
+    overflow: hidden;
+    width: 295px;
+}
+input, textarea {
+    width: 213px;
+    height: 23px;
+    margin: 0 0 15px;
+    padding: 0 5px 0 18px;
+    border: 1px solid #4E769D;
+    font-size: 13px;
+    font-style: italic;
+    color: #4C4C4C;
+    line-height: 13px;
+}
+label {
+    float: right;
+    padding: 4px 0 0 10px;
+    font-size: 13px;
+    color: #515151;
+    line-height: 13px;
+}
+textarea {
+    display: block;
+    width: 213px;
+    height: 128px;
+    padding: 8px 0 0 18px;
+}
+.form-submit input {
+    width: 226px;
+    height: 23px;
+    padding: 0;
+    border: 1px solid #EEEEEE;
+    border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -o-border-radius: 6px 6px 6px 6px;
+    -ms-border-radius: 6px 6px 6px 6px;
+    text-align: center;
+    font: 11px/11px "Myriad Pro";
+    color: #55616F;
+    background: url("images/submit_bg.png") repeat-x;
+}
+.logged-in-as {
+    overflow: hidden;
+    padding: 0 0 5px;
+}
+.logged-in-as a, #cancel-comment-reply-link {
+    color: #B6B6B6;
+    font-size: 14px;
+    font-style: italic;
+    text-decoration: none;
+}
+.logged-in-as a:hover {
+    text-decoration: underline;
+}
+#cancel-comment-reply-link:hover {
+    text-decoration: underline;
+}
+/*------------------------------------ARCHIVES--------------------------------------*/
+.archive-header {
+    overflow: hidden;
+    margin: 0 0 15px 229px;
+}
+.archive-header h1 {
+    font-size: 18px;
+    line-height: 23px;
+    font-weight: normal;
+    color: #005589;
+}
+.archive-header h1 span {
+    font-style: italic;
+    font-size: 16px;
+    color: #B6B6B6;
+}
+.archive-header h1  a {
+    font-style: italic;
+    font-size: 16px;
+    color: #B6B6B6;
+    text-decoration: none;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------SIDEBAR--------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+.widget-area {
+    overflow: hidden;
+    float: left;
+    width: 190px;
+}
+aside {
+    overflow: hidden;
+    padding: 0 0 20px;
+}
+aside h3 {
+    padding: 0 0 5px;
+    margin: 0 0 13px;
+    font-size: 22px;
+    font-weight: normal;
+    line-height: 23px;
+    color: #005589;
+    border-bottom: 4px double #00568A;
+}
+aside ul {
+    overflow: hidden;
+}
+aside ul li {
+    overflow: hidden;
+    padding: 6px 0 16px;
+}
+aside ul li a {
+    text-decoration: none;
+    color: #6F6F6F;
+}
+aside ul li a:hover {
+    text-decoration: underline;
+}
+.customized-recent-comments {
+    overflow: hidden;
+}
+.recentcomment {
+    overflow: hidden;
+    padding: 0 0 12px;
+    margin: 0 0 14px;
+    background: url("images/sidebar_ border.png") no-repeat 0 bottom;
+}
+.recentcomment:last-child {
+    background: none;
+}
+.comment-meta {
+    padding: 0 0 21px;
+}
+.comment-meta .author {
+    font-size: 13px;
+    font-style: italic;
+    color: #B6B6B6;
+}
+.comment-meta .date {
+    float: right;
+    width: 100px;
+    text-align: right;
+    font-size: 10px;
+    font-style: italic;
+    color: #FA1515;
+}
+.recentcomment ul li p {
+    line-height: 14px;
+    padding: 0 0 12px;
+}
+.widget_latest_twitter_widget h3 {
+    overflow: hidden;
+    padding: 0 0 5px 26px;
+    background: url("images/twitter_icon.png") no-repeat 0 3px;
+}
+.tweets {
+    overflow: hidden;
+    padding: 0 0 12px;
+    margin: 0 0 14px;
+    background: url("images/sidebar_ border.png") no-repeat 0 bottom;
+}
+.tweets:last-child {
+    background: none;
+}
+.info {
+    padding: 0 0 21px;
+}
+.author {
+    font-size: 13px;
+    font-style: italic;
+    color: #B6B6B6;
+}
+.tweet-time {
+    float: right;
+    width: 100px;
+    text-align: right;
+    font-size: 10px;
+    font-style: italic;
+    color: #FA1515;
+}
+.tweet {
+    overflow: hidden;
+    line-height: 14px;
+    padding: 0 0 12px;
+}
+.tweet a {
+    font-style: italic;
+    color: #00568A;
+    text-decoration: none;
+}
+.tweet a:hover {
+    text-decoration: underline;
+}
+/*----------------------------------------------------------------------------------*/
+/*-------------------------------------FOOTER---------------------------------------*/
+/*----------------------------------------------------------------------------------*/
+#footer {
+    overflow: hidden;
+    height: 78px;
+    background: url("images/footer_bg.png") repeat-x;
+    box-shadow: 0px 0 4px 1px #D4D4D4;
+    -moz-box-shadow: 0px 0 4px 1px #D4D4D4;
+    -webkit-box-shadow: 0px 0 4px 1px #D4D4D4;
+    -o-box-shadow: 0px 0 4px 1px #D4D4D4;
+    -ms-box-shadow: 0px 0 4px 1px #D4D4D4;
+}
+#footer P {
+    width: 650px;
+    margin: 38px auto 0;
+    font-size: 13px;
+    line-height: 13px;
+    color: #939393;
+}

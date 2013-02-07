@@ -1,0 +1,56 @@
+/*
+ * WP-Paginate - WordPress Pagination Function
+ * Revision: $Id: wp-paginate.css 286636 2010-09-08 00:11:23Z emartin24 $
+ * Copyright (c) 2010 Eric Martin http://www.ericmmartin.com/projects/wp-paginate/
+ */
+.wp-paginate {padding:0; margin:0;}
+.wp-paginate li {
+    overflow: hidden;
+    float: left;
+    margin: 0 8px 0 0;
+}
+.wp-paginate a,
+.wp-paginate .current
+{
+    display: block;
+    width: 21px;
+    height: 15px;
+    padding: 6px 0 0;
+    text-align: center;
+    text-decoration: none;
+    color: #55616F;
+    font-size: 11px;
+    line-height: 11px;
+    background: url("images/paginator_bg.png") repeat-x;
+    border: 1px solid #E5E5E5;
+    border-radius: 2px 2px 2px 2px;
+    -webkit-border-radius: 2px 2px 2px 2px;
+    -moz-border-radius: 2px 2px 2px 2px;
+    -o-border-radius: 2px 2px 2px 2px;
+    -ms-border-radius: 2px 2px 2px 2px;
+}
+.wp-paginate a:hover, .wp-paginate a:active {
+
+}
+.wp-paginate .title {color:#555; margin-right:4px;}
+.wp-paginate .gap {color:#999; margin-right:4px;}
+.wp-paginate .current {
+    color: #D8D8D8;
+}
+.wp-paginate .page {}
+.wp-paginate .prev, .wp-paginate .next {
+    float: left;
+    width: 47px;
+    margin: 0 8px 0 0;
+}
+
+/* style overrides for comments pagination */
+.wp-paginate-comments {}
+.wp-paginate-comments li {}
+.wp-paginate-comments a {}
+.wp-paginate-comments a:hover, .wp-paginate-comments a:active {}
+.wp-paginate-comments .title {}
+.wp-paginate-comments .gap {}
+.wp-paginate-comments .current {}
+.wp-paginate-comments .page {}
+.wp-paginate-comments .prev, .wp-paginate-comments .next {}
